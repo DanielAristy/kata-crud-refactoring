@@ -9,6 +9,8 @@ public class Todo {
     private Long id;
     private String name;
     private boolean completed;
+    @ManyToOne
+    private Category category;
 
     public boolean isCompleted() {
         return completed;
