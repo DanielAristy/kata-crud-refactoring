@@ -12,8 +12,8 @@ public class Category {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany
-    private List<Todo> todos;
+//    @OneToMany
+//    private List<Todo> todos;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class Category {
         this.name = name;
     }
 
-    public List<Todo> getTodos() {
-        return todos;
-    }
-
-    public void setTodos(List<Todo> todos) {
-        this.todos = todos;
-    }
+//    public List<Todo> getTodos() {
+//        return todos;
+//    }
+//
+//    public void setTodos(List<Todo> todos) {
+//        this.todos = todos;
+//    }
 }

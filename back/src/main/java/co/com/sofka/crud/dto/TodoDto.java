@@ -1,14 +1,15 @@
 package co.com.sofka.crud.dto;
 
+import co.com.sofka.crud.model.Todo;
 import org.apache.commons.lang3.StringUtils;
+import org.modelmapper.ModelMapper;
 
 import java.io.Serializable;
 
-public class TodoDTO implements Serializable {
+public class TodoDto implements Serializable {
     private Long id;
     private String name;
     private boolean completed;
-    private String groupListId;
 
     public Long getId() {
         return id;
@@ -25,7 +26,6 @@ public class TodoDTO implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
     public boolean isCompleted() {
         return completed;
     }
@@ -34,11 +34,4 @@ public class TodoDTO implements Serializable {
         this.completed = completed;
     }
 
-    public String getGroupListId() {
-        return groupListId;
-    }
-
-    public void setGroupListId(String groupListId) {
-        this.groupListId = groupListId;
-    }
 }

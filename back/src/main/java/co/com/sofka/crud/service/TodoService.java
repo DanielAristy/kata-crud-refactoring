@@ -19,6 +19,10 @@ public class TodoService {
         return repository.save(todo);
     }
 
+    public Todo update(Todo todo){
+        return repository.save(todo);
+    }
+
     public void delete(Long id){
         repository.delete(get(id));
     }
