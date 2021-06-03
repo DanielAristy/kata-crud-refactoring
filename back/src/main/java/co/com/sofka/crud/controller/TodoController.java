@@ -1,6 +1,7 @@
 package co.com.sofka.crud.controller;
 
 import co.com.sofka.crud.dto.TodoDto;
+import co.com.sofka.crud.mapper.Mapper;
 import co.com.sofka.crud.model.Todo;
 import co.com.sofka.crud.service.TodoService;
 import org.modelmapper.ModelMapper;
@@ -19,29 +20,30 @@ public class TodoController {
     private TodoService service;
 
     @Autowired
-    private ModelMapper mapper;
+    private Mapper mapper;
 
     @GetMapping(value = "api/todos")
     public Iterable<TodoDto> list(){
+
         List<Todo> todos = (List<Todo>) service.list();
-        return todos.stream()
-                .map(this::convertToDto)
-                .collect(Collectors.toList());
+        return todos.stream().map(dto ->
+                mapper.convertToDto(dto)
+        ).collect(Collectors.toList());
     }
     
     @PostMapping(value = "api/todo")
     public TodoDto save(@RequestBody TodoDto todoDto){
-        Todo todo = convertToEntity(todoDto);
+        Todo todo = mapper.convertToEntity(todoDto);
         Todo todoCreate = service.save(todo);
-        return convertToDto(todoCreate);
+        return mapper.convertToDto(todoCreate);
     }
 
     @PutMapping(value = "api/todo")
     public TodoDto update(@RequestBody TodoDto todoDto){
-        Todo todo = convertToEntity(todoDto);
+        Todo todo = mapper.convertToEntity(todoDto);
         if(todoDto.getId() != null){
             Todo todoUpdate = service.update(todo);
-            return convertToDto(todoUpdate);
+            return mapper.convertToDto(todoUpdate);
         }
         throw new RuntimeException("No existe el id para actualziar");
     }
@@ -55,28 +57,4 @@ public class TodoController {
     public Todo get(@PathVariable("id") Long id){
         return service.get(id);
     }
-
-    @Bean
-    public ModelMapper modelMapper() {
-        return new ModelMapper();
-    }
-    private TodoDto convertToDto(Todo todo){
-        TodoDto todoDto = mapper.map(todo, TodoDto.class);
-        todoDto.setId(todo.getId());
-        todoDto.setName(todo.getName());
-        todoDto.setCompleted(todo.isCompleted());
-        return todoDto;
-    }
-
-    private Todo convertToEntity(TodoDto todoDto){
-        Todo todo = mapper.map(todoDto, Todo.class);
-
-        if (todoDto.getId() != null){
-            todo.setId(todo.getId());
-            todo.setName(todo.getName());
-            todo.setCompleted(todo.isCompleted());
-        }
-        return todo;
-    }
-
 }
