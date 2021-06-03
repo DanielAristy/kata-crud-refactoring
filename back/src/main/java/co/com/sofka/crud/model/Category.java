@@ -10,17 +10,17 @@ import java.util.List;
 public class Category {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long id_category;
     private String name;
-//    @OneToMany
-//    private List<Todo> todos;
+    @OneToMany(mappedBy = "category")
+    private List<Todo> todos;
 
-    public Long getId() {
-        return id;
+    public Long getId_category() {
+        return id_category;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_category(Long id) {
+        this.id_category = id;
     }
 
     public String getName() {
