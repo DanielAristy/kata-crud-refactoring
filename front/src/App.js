@@ -19,7 +19,8 @@ const Form = () => {
     const request = {
       name: state.name,
       id: null,
-      completed: false
+      completed: false,
+      category: 1
     };
 
 
@@ -44,7 +45,8 @@ const Form = () => {
     const request = {
       name: state.name,
       id: item.id,
-      isCompleted: item.isCompleted
+      isCompleted: item.isCompleted,
+      category: item.category
     };
 
 
