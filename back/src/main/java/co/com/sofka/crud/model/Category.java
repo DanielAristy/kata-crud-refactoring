@@ -1,9 +1,6 @@
 package co.com.sofka.crud.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -12,7 +9,8 @@ public class Category {
     @GeneratedValue
     private Long id_category;
     private String name;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "category")
     private List<Todo> todos;
 
     public Long getId_category() {

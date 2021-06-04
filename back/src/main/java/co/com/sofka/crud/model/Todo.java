@@ -13,6 +13,14 @@ public class Todo {
 //    @JoinColumn(name = "id_category", insertable = false, updatable = false)
     private Long category;
 
+    public Long getCategory() {
+        return category;
+    }
+
+    public void setCategory(Long category) {
+        this.category = category;
+    }
+
     public boolean isCompleted() {
         return completed;
     }

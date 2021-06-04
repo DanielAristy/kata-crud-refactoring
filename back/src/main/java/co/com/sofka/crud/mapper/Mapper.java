@@ -21,6 +21,7 @@ public class Mapper {
         todoDto.setId(todo.getId_todo());
         todoDto.setName(todo.getName());
         todoDto.setCompleted(todo.isCompleted());
+        todoDto.setCategory(todo.getCategory());
         return todoDto;
     }
 
@@ -31,6 +32,7 @@ public class Mapper {
             todo.setId_todo(todo.getId_todo());
             todo.setName(todo.getName());
             todo.setCompleted(todo.isCompleted());
+            todo.setCategory(todo.getCategory());
         }
         return todo;
     }

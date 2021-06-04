@@ -10,6 +10,15 @@ public class TodoDto implements Serializable {
     private Long id;
     private String name;
     private boolean completed;
+    private Long category;
+
+    public Long getCategory() {
+        return category;
+    }
+
+    public void setCategory(Long category) {
+        this.category = category;
+    }
 
     public Long getId() {
         return id;
