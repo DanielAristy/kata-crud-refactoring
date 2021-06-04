@@ -29,10 +29,10 @@ public class Mapper {
         Todo todo = mapper.map(todoDto, Todo.class);
 
         if (todoDto.getId() != null){
-            todo.setId_todo(todo.getId_todo());
-            todo.setName(todo.getName());
-            todo.setCompleted(todo.isCompleted());
-            todo.setCategory(todo.getCategory());
+            todo.setId_todo(todoDto.getId());
+            todo.setName(todoDto.getName());
+            todo.setCompleted(todoDto.isCompleted());
+            todo.setCategory(todoDto.getCategory());
         }
         return todo;
     }
