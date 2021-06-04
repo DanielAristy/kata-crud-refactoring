@@ -2,7 +2,8 @@ import React, { useReducer, createContext } from 'react';
 import { reducer } from '../util/reducer';
 
 const initialState = {
-  todo: { list: [], item: {} }
+  todo: { list: [], item: {} },
+  category: { list: [], item: {} }
 };
 
 export const Store = createContext(initialState);
