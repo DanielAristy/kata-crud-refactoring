@@ -31,11 +31,11 @@ public class Category {
         this.name = name;
     }
 
-//    public List<Todo> getTodos() {
-//        return todos;
-//    }
-//
-//    public void setTodos(List<Todo> todos) {
-//        this.todos = todos;
-//    }
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<Todo> todos) {
+        this.todos = todos;
+    }
 }

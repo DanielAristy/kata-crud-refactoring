@@ -9,9 +9,9 @@ public class Todo {
     private Long id_todo;
     private String name;
     private boolean completed;
-    @ManyToOne
-    @JoinColumn(name = "id_category", insertable = false, updatable = false)
-    private Category category;
+//    @ManyToOne
+//    @JoinColumn(name = "id_category", insertable = false, updatable = false)
+    private Long category;
 
     public boolean isCompleted() {
         return completed;

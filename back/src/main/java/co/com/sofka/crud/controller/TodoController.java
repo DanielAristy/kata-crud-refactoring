@@ -4,9 +4,7 @@ import co.com.sofka.crud.dto.TodoDto;
 import co.com.sofka.crud.mapper.Mapper;
 import co.com.sofka.crud.model.Todo;
 import co.com.sofka.crud.service.TodoService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

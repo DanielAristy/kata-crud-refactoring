@@ -1,0 +1,2 @@
+-- INSERT INTO public.category(id_category, name) VALUES (1, 'Backend');
+-- INSERT INTO public.category(id_category, name) VALUES (2, 'Frontend');
