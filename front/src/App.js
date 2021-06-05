@@ -1,15 +1,17 @@
 import React from 'react';
-import { Form } from './component/Form';
-import { FormCategory } from './component/FormCategory';
 import { StoreProvider } from './component/initialState';
+import { FormCategory } from '../src/component/FormCategory'
+import { FormCategoryList } from './component/FormCategoryList';
+import { Form } from './component/Form';
 import { List } from './component/List';
 
 function App() {
   return <StoreProvider>
     <h3>To-Do List</h3>
-    <FormCategory/>
-    <Form />
-    <List />
+      {/* <FormCategory/>
+      <FormCategoryList /> */}
+      <Form />
+      <List />
   </StoreProvider>
 }
 

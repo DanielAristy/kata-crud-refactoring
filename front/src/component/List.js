@@ -49,13 +49,14 @@ export const List = () => {
   const decorationDone = {
     textDecoration: 'line-through'
   };
-  return <div>
-    <table>
-      <thead>
+  return <div className="">
+    <table className="table table-striped table-hover">
+      <thead className="table-dark">
         <tr>
-          <td>ID</td>
+          <td >ID</td>
           <td>Tarea</td>
           <td>¿Completado?</td>
+          <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -64,8 +65,8 @@ export const List = () => {
             <td>{todo.id}</td>
             <td>{todo.name}</td>
             <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-            <td><button onClick={() => onDelete(todo.id)}>Eliminar</button></td>
-            <td><button onClick={() => onEdit(todo)}>Editar</button></td>
+            <td><button type="button" class="btn btn-danger" onClick={() => onDelete(todo.id)}>Eliminar</button></td>
+            <td><button type="button" class="btn btn-primary" onClick={() => onEdit(todo)}>Editar</button></td>
           </tr>;
         })}
       </tbody>

@@ -3,7 +3,7 @@ import { reducer } from '../util/reducer';
 
 const initialState = {
   todo: { list: [], item: {} },
-  category: { list: [], item: {} }
+  categoryList: { list: [], item: {} }
 };
 
 export const Store = createContext(initialState);
