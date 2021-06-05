@@ -60,9 +60,9 @@ export const Form = () => {
       });
   };
 
-  return <form ref={formRef}>
-    <input
-    class="form-control"
+  return <form className="container" ref={formRef}>
+    <input 
+      class="form-control"
       type="text"
       name="name"
       placeholder="¿Qué piensas hacer hoy?"
@@ -70,7 +70,12 @@ export const Form = () => {
       onChange={(event) => {
         setState({ ...state, name: event.target.value });
       }}></input>
-    {item.id && <button type="button" class="btn btn-info" onClick={onEdit}>Actualizar</button>}
-    {!item.id && <button type="button" class="btn btn-success" onClick={onAdd}>Crear</button>}
+      <div className="d-grid gap-2 col-6 mx-auto">
+        {item.id && <button type="button" class="btn btn-info btn-lg center-block" onClick={onEdit}>Actualizar</button>}
+        {!item.id && <button type="button" class="btn btn-success btn-lg" onClick={onAdd}>Crear</button>}
+      </div>
+    
+    
+
   </form>;
 };

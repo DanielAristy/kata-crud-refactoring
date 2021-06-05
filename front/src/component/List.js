@@ -49,12 +49,12 @@ export const List = () => {
   const decorationDone = {
     textDecoration: 'line-through'
   };
-  return <div className="">
+  return <div>
     <table className="table table-striped table-hover">
       <thead className="table-dark">
         <tr>
           <td >ID</td>
-          <td>Tarea</td>
+          <td>Tarea</td>  
           <td>¿Completado?</td>
           <td>Acciones</td>
         </tr>
@@ -64,9 +64,11 @@ export const List = () => {
           return <tr key={todo.id} style={todo.completed ? decorationDone : {}}>
             <td>{todo.id}</td>
             <td>{todo.name}</td>
-            <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-            <td><button type="button" class="btn btn-danger" onClick={() => onDelete(todo.id)}>Eliminar</button></td>
-            <td><button type="button" class="btn btn-primary" onClick={() => onEdit(todo)}>Editar</button></td>
+            <td ><input class="form-check-input text-align: center" type="checkbox" value="" id="flexCheckDefault" type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <button type="button" class="btn btn-danger" onClick={() => onDelete(todo.id)}>Eliminar</button>
+              <button type="button" class="btn btn-primary" onClick={() => onEdit(todo)}>Editar</button>
+            </div>
           </tr>;
         })}
       </tbody>

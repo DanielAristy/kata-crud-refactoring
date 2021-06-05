@@ -6,12 +6,16 @@ import { Form } from './component/Form';
 import { List } from './component/List';
 
 function App() {
-  return <StoreProvider>
-    <h3>To-Do List</h3>
-      {/* <FormCategory/>
-      <FormCategoryList /> */}
-      <Form />
-      <List />
+  return <StoreProvider >
+
+    <div className="container">
+      <h3 >To-Do List</h3> 
+        {/* <FormCategory/>
+        <FormCategoryList /> */}
+        <Form />
+        <List />
+    </div>
+    
   </StoreProvider>
 }
 
