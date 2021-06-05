@@ -15,7 +15,7 @@ export const Form = () => {
       name: state.name,
       id: null,
       completed: false,
-      category: 1
+      category: null
     };
 
 
