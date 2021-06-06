@@ -80,9 +80,10 @@ export const List = () => {
               </input>
             </td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button disabled={isCompleted(todo.completed)} type="button" class="btn btn-danger" id="delete"
+              <button type="button" class="btn btn-danger"
                 onClick={() => onDelete(todo.id)}>Eliminar</button>
-              <button disabled={isCompleted(todo.completed)}  type="button" class="btn btn-primary" id="edit"
+              <button disabled={isCompleted(todo.completed)}
+                type="button" class="btn btn-primary"
                 onClick={() => onEdit(todo)}>Editar</button>
             </div>
           </tr>;
