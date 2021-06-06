@@ -60,6 +60,10 @@ export const Form = ({id_category}) => {
       });
   };
 
+  const isEmpty = (name) => {
+    return (name == undefined || name.length === 0)?true:false;
+  }
+
   return <form ref={formRef}>
     <input 
       class="form-control"
@@ -72,7 +76,7 @@ export const Form = ({id_category}) => {
       }}></input>
       <div className="d-grid gap-2 col-6 mx-auto">
         {item.id && <button type="button" class="btn btn-info btn-lg center-block" onClick={onEdit}>Actualizar</button>}
-        {!item.id && <button type="button" class="btn btn-success btn-lg" onClick={onAdd}>Crear</button>}
+        {!item.id && <button disabled={isEmpty(state.name)}  type="button" class="btn btn-success btn-lg" onClick={onAdd}>Crear</button>}
       </div>
 
   </form>;

@@ -21,8 +21,6 @@ export const List = () => {
     }).then((list) => {
       dispatch({ type: "delete-item", id });
     });
-
-    console.log(id)
   };
 
   const onEdit = (todo) => {
