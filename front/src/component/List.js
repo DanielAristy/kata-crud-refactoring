@@ -55,8 +55,7 @@ export const List = () => {
     textDecoration: 'line-through'
   };
 
-  return <div>
-    <table className="table table-striped table-hover">
+  return <table className="table table-striped table-hover">
       <thead className="table-dark">
         <tr>
           <td >ID</td>
@@ -71,22 +70,21 @@ export const List = () => {
             <td>{todo.id}</td>
             <td>{todo.name}</td>
             <td >
-              <input class="form-check-input"
-               type="checkbox" value="" id="flexCheckDefault" type="checkbox"
+              <input className="form-check-input"
+               type="checkbox" value="" id="flexCheckDefault"
                  defaultChecked={todo.completed}
                  onChange={(event) => onChange(event, todo)}>
               </input>
             </td>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-danger"
+            <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+              <button type="button" className="btn btn-danger"
                 onClick={() => onDelete(todo.id)}>Eliminar</button>
               <button disabled={isCompleted(todo.completed)}
-                type="button" class="btn btn-primary"
+                type="button" className="btn btn-primary"
                 onClick={() => onEdit(todo)}>Editar</button>
             </div>
           </tr>;
         })}
       </tbody>
     </table>
-  </div>;
 };

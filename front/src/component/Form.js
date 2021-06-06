@@ -61,12 +61,12 @@ export const Form = ({id_category}) => {
   };
 
   const isEmpty = (name) => {
-    return (name == undefined || name.length === 0)?true:false;
+    return (name === undefined || name.length === 0)?true:false;
   }
 
   return <form ref={formRef}>
     <input 
-      class="form-control"
+      className="form-control"
       type="text"
       name="name"
       placeholder="¿Qué piensas hacer hoy?"
@@ -75,8 +75,8 @@ export const Form = ({id_category}) => {
         setState({ ...state, name: event.target.value });
       }}></input>
       <div className="d-grid gap-2 col-6 mx-auto">
-        {item.id && <button type="button" class="btn btn-info btn-lg center-block" onClick={onEdit}>Actualizar</button>}
-        {!item.id && <button disabled={isEmpty(state.name)}  type="button" class="btn btn-success btn-lg" onClick={onAdd}>Crear</button>}
+        {item.id && <button type="button" className="btn btn-info btn-lg center-block" onClick={onEdit}>Actualizar</button>}
+        {!item.id && <button disabled={isEmpty(state.name)}  type="button" className="btn btn-success btn-lg" onClick={onAdd}>Crear</button>}
       </div>
 
   </form>;
