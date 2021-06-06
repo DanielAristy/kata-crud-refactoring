@@ -1,9 +1,9 @@
 import React from 'react';
-import { StoreProvider } from './component/initialState';
-import { FormCategory } from '../src/component/FormCategory'
-import { FormCategoryList } from './component/FormCategoryList';
+import { StoreProvider } from './component/Store';
 import { Form } from './component/Form';
 import { List } from './component/List';
+// import { FormCategory }  from './component/FormCategory';
+// import { FormCategoryList } from './component/FormCategoryList';
 
 function App() {
   return <StoreProvider >

@@ -1,10 +1,10 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Form } from './Form';
 import { HOST_API } from "../util/HOST_API";
-import { Store } from "./initialState";
-import { List } from './List';
+import { Store } from "./Store";
+import { List }  from './List';
 
-export const FormCategoryList = () => {
+const FormCategoryList = () => {
     const { dispatch, state: { categoryList } } = useContext(Store);
     const lista = categoryList.list;
 
@@ -17,19 +17,17 @@ export const FormCategoryList = () => {
     }, [dispatch]);
   
     return (
-        <>
-        {
-            lista.map((categoryList) => {
-                return (
-                    <div key={categoryList.id_category}>
-                        <h2>{categoryList.name}</h2>{/*Nombre de la categoria*/}
-                        <button>Eliminar</button>
-                        <Form id={categoryList.id_category} />
-                        <List id={categoryList.id_category} listCategory={categoryList.todos}/>
-                    </div>
-                )
-            })
-        }
-        </>
+        lista.map((category) => {
+            return (
+                <div key={category.id_category}>
+                    <h2>{category.name}</h2>
+                    <button>Eliminar</button>
+                    <Form id={category.id_category} />
+                    <List id={category.id_category} listCategory={category.todos}/>
+                </div>
+            )
+        })
     )
 };
+
+export default FormCategoryList;

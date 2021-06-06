@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useState } from 'react';
 import { HOST_API } from '../util/HOST_API';
-import { Store } from "./initialState";
+import { Store } from "./Store";
 
-export const FormCategory = () => {
+const FormCategory = () => {
   const formRef = useRef(null);
   const { dispatch, state: { categoryList } } = useContext(Store);
   const item = categoryList.item;
@@ -13,7 +13,7 @@ export const FormCategory = () => {
 
     const request = {
         name: state.name,
-        id: null
+        id_category: null
     };
 
     fetch(HOST_API + "/category", {
@@ -43,7 +43,9 @@ export const FormCategory = () => {
             }}>
             </input>
             <button onClick={onAdd}>Nueva Categoria </button>
-            </form>;
+            </form>
     </div>
   )
 };
+
+export default FormCategory;

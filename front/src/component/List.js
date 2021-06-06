@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import { HOST_API } from "../util/HOST_API";
-import { Store } from "./initialState";
+import { HOST_API }  from "../util/HOST_API";
+import { Store } from "./Store";
 
 export const List = () => {
   const { dispatch, state: { todo } } = useContext(Store);
@@ -21,6 +21,8 @@ export const List = () => {
     }).then((list) => {
       dispatch({ type: "delete-item", id });
     });
+
+    console.log(id)
   };
 
   const onEdit = (todo) => {
@@ -33,6 +35,7 @@ export const List = () => {
       id: todo.id,
       completed: event.target.checked
     };
+
     fetch(HOST_API + "/todo", {
       method: "PUT",
       body: JSON.stringify(request),
@@ -46,9 +49,14 @@ export const List = () => {
       });
   };
 
+  const isCompleted = (completed) => {
+    return completed ? true : false;
+  }
+
   const decorationDone = {
     textDecoration: 'line-through'
   };
+
   return <div>
     <table className="table table-striped table-hover">
       <thead className="table-dark">
@@ -64,10 +72,18 @@ export const List = () => {
           return <tr key={todo.id} style={todo.completed ? decorationDone : {}}>
             <td>{todo.id}</td>
             <td>{todo.name}</td>
-            <td ><input class="form-check-input text-align: center" type="checkbox" value="" id="flexCheckDefault" type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
+            <td >
+              <input class="form-check-input"
+               type="checkbox" value="" id="flexCheckDefault" type="checkbox"
+                 defaultChecked={todo.completed}
+                 onChange={(event) => onChange(event, todo)}>
+              </input>
+            </td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-danger" onClick={() => onDelete(todo.id)}>Eliminar</button>
-              <button type="button" class="btn btn-primary" onClick={() => onEdit(todo)}>Editar</button>
+              <button disabled={isCompleted(todo.completed)} type="button" class="btn btn-danger" id="delete"
+                onClick={() => onDelete(todo.id)}>Eliminar</button>
+              <button disabled={isCompleted(todo.completed)}  type="button" class="btn btn-primary" id="edit"
+                onClick={() => onEdit(todo)}>Editar</button>
             </div>
           </tr>;
         })}

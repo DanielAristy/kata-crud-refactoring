@@ -1,21 +1,21 @@
 import React, { useContext, useRef, useState } from 'react';
 import { HOST_API } from '../util/HOST_API';
-import { Store } from "./initialState";
+import { Store } from "./Store";
 
-export const Form = () => {
+export const Form = ({id_category}) => {
   const formRef = useRef(null);
-  const { dispatch, state: { todo, id, listCategory } } = useContext(Store);
+  const { dispatch, state: { todo } } = useContext(Store);
   const item = todo.item;
   const [state, setState] = useState(item);
 
   const onAdd = (event) => {
     event.preventDefault();
-
+    
     const request = {
       name: state.name,
       id: null,
       completed: false,
-      category: null
+      category: id_category
     };
 
 
@@ -60,7 +60,7 @@ export const Form = () => {
       });
   };
 
-  return <form className="container" ref={formRef}>
+  return <form ref={formRef}>
     <input 
       class="form-control"
       type="text"
@@ -74,8 +74,6 @@ export const Form = () => {
         {item.id && <button type="button" class="btn btn-info btn-lg center-block" onClick={onEdit}>Actualizar</button>}
         {!item.id && <button type="button" class="btn btn-success btn-lg" onClick={onAdd}>Crear</button>}
       </div>
-    
-    
 
   </form>;
 };
